@@ -1,1 +1,1 @@
-# app-prereq-helm-charts
+# Apache Kafka Helm Chart
