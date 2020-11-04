@@ -1,0 +1,18 @@
+---
+- name: Create kafka namespace
+  shell: "kubectl create namespace kafka --dry-run -o yaml | kubectl apply -f -"
+
+- name: Create API namespace
+  shell: "kubectl create namespace api --dry-run -o yaml | kubectl apply -f -"
+
+- name: Run kafka Helm chart
+  shell: "helm install kafka --namespace kafka ."
+
+- name: Add repository for dashboard
+  shell: "kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml"
+
+- name: Run dashboard.yml
+  shell: "kubectl apply -f dashboard.yml"
+
+- name: Run proxy
+  shell: "kubectl proxy"
