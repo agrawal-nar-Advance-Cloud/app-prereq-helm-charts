@@ -1,0 +1,6 @@
+---
+# tasks file for app-prereq
+- include: kafka.yml
+- include: efk-stack.yml
+- include: prometheus-grafana.yml
+- include: dashboard.yml
